@@ -27,6 +27,7 @@
       <input type="url" name="productUrl" placeholder="Paste product URL here" required>
       <button type="submit" class="btn">Analyze</button>
     </form>
+    <p class="hint">🎁 Your first analysis is free. Login for unlimited checks.</p>
 </div>
 <div class="hero-visual">🛒</div>
 </section>
@@ -53,6 +54,6 @@
   <footer class="footer">
     <p>© 2026 Code Breakers | E-Commerce Transparency Assistant</p>
   </footer>
-
+<script src="${pageContext.request.contextPath}/js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | DarkPattern Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.jsp" class="logo">🛡️ DarkPattern Assistant</a>
+    <ul>
+      <li><a href="index.jsp">Home</a></li>
+      <li><a href="login.jsp">Login</a></li>
+      <li><a href="signup.jsp">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h2>Create your account 🚀</h2>
+
+      <c:if test="${not empty param.msg}">
+        <div class="alert">${param.msg}</div>
+      </c:if>
+
+      <form action="signup" method="post">
+        <input type="text" name="fullName" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <div class="password-wrap">
+          <input type="password" name="password" placeholder="Password (min 6 characters)" pattern=".{6,}" title="Minimum 6 characters" required>
+          <button type="button" class="toggle-eye" aria-label="Show password">👁️</button>
+        </div>
+        <div class="password-wrap">
+          <input type="password" name="confirmPassword" placeholder="Confirm password" pattern=".{6,}" title="Minimum 6 characters" required>
+          <button type="button" class="toggle-eye" aria-label="Show password">👁️</button>
+        </div>
+        <p class="match-msg" id="matchMsg"></p>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+
+      <p class="switch">Already have an account? <a href="login.jsp">Login</a></p>
+    </div>
+  </div>
+<script src="${pageContext.request.contextPath}/js/script.js"></script>
+</body>
+</html>
