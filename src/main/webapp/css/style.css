@@ -207,3 +207,32 @@ a { text-decoration: none; color: inherit; }
 .match-msg { font-size: .85rem; margin: -6px 0 12px; min-height: 1.2em; }
 .match-msg.ok { color: #16a34a; }
 .match-msg.bad { color: #dc2626; }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.menu-toggle span { width: 24px; height: 3px; background: var(--white); border-radius: 2px; }
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  .navbar ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--navy);
+    padding: 16px 6%;
+    gap: 0;
+  }
+  .navbar ul.open { display: flex; }
+  .navbar ul li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .navbar { position: relative; flex-wrap: wrap; }
+}

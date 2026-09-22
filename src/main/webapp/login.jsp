@@ -11,8 +11,11 @@
 </head>
 <body>
   <nav class="navbar">
-    <a href="index.jsp" class="logo">🛡️ DarkPattern Assistant</a>
-    <ul>
+  <a href="index.jsp" class="logo">🛡️ DarkPattern Assistant</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navLinks">
       <li><a href="index.jsp">Home</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>

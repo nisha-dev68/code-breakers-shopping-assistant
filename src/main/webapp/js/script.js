@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+	// Mobile menu toggle
+	var menuBtn = document.getElementById("menuToggle");
+	var navLinks = document.getElementById("navLinks");
+	if (menuBtn && navLinks) {
+	  menuBtn.addEventListener("click", function () {
+	    navLinks.classList.toggle("open");
+	  });
+	}
 
   function showMessage(form, text) {
     var old = form.parentNode.querySelector(".form-error");
