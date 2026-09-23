@@ -245,7 +245,12 @@ a { text-decoration: none; color: inherit; }
   .navbar { position: relative; flex-wrap: wrap; }
 }
 
-.result-wrap { max-width: 800px; margin: 0 auto; padding: 40px 6% 60px; }
+.result-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 6% 60px;
+  background: radial-gradient(circle at 15% 10%, rgba(37,99,235,0.06), transparent 35%);
+}
 
 .result-url-bar {
   display: flex;
