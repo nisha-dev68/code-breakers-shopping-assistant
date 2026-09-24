@@ -18,6 +18,7 @@
  <ul id="navLinks">
   <li><a href="index.jsp">Home</a></li>
   <li><a href="products.jsp">Products</a></li>
+  <li><a href="about.jsp">About</a></li>
   <li><a href="login.jsp">Login</a></li>
   <li><a href="signup.jsp">Sign Up</a></li>
  </ul>

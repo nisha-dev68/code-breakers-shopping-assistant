@@ -6,6 +6,25 @@ document.addEventListener("DOMContentLoaded", function () {
 	  menuBtn.addEventListener("click", function () {
 	    navLinks.classList.toggle("open");
 	  });
+	  // Highlight active nav link
+	  var currentPage = window.location.pathname.split("/").pop();
+	  document.querySelectorAll(".navbar ul a").forEach(function (link) {
+	    var linkPage = link.getAttribute("href");
+	    if (linkPage === currentPage || (currentPage === "" && linkPage === "index.jsp")) {
+	      link.classList.add("active");
+	    }
+	  });
+	  // Small delay so the click animation is visible before navigating
+	  document.querySelectorAll(".product-card").forEach(function (card) {
+	    card.addEventListener("click", function (e) {
+	      e.preventDefault();
+	      var href = card.getAttribute("href");
+	      card.style.transform = "scale(0.97)";
+	      setTimeout(function () {
+	        window.location.href = href;
+	      }, 120);
+	    });
+	  });
 	}
 
   function showMessage(form, text) {
