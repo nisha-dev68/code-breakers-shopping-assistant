@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DarkPattern Assistant | Code Breakers</title>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🛡️</text></svg>'>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
@@ -19,6 +20,8 @@
   <li><a href="index.jsp">Home</a></li>
   <li><a href="products.jsp">Products</a></li>
   <li><a href="about.jsp">About</a></li>
+  <li><a href="faq.jsp">FAQ</a></li>
+  <li><a href="contact.jsp">Contact</a></li>
   <li><a href="login.jsp">Login</a></li>
   <li><a href="signup.jsp">Sign Up</a></li>
  </ul>
@@ -56,8 +59,9 @@
   </section>
 
   <footer class="footer">
-    <p>© 2026 Code Breakers | E-Commerce Transparency Assistant</p>
-  </footer>
+  <p>© 2026 Code Breakers | E-Commerce Transparency Assistant</p>
+  <p class="footer-links"><a href="privacy.jsp">Privacy Policy</a></p>
+</footer>
 <script src="${pageContext.request.contextPath}/js/script.js"></script>
 </body>
 </html>

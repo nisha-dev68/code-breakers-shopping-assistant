@@ -25,6 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	      }, 120);
 	    });
 	  });
+	  // FAQ accordion
+	  document.querySelectorAll(".faq-question").forEach(function (btn) {
+	    btn.addEventListener("click", function () {
+	      var item = btn.closest(".faq-item");
+	      item.classList.toggle("open");
+	    });
+	  });
 	}
 
   function showMessage(form, text) {
