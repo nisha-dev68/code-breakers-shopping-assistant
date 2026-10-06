@@ -526,3 +526,8 @@ a { text-decoration: none; color: inherit; }
 .footer-links { margin-top: 6px; }
 .footer-links a { color: #cbd5e1; font-size: .8rem; }
 .footer-links a:hover { color: var(--white); }
+
+.stats-section { background: var(--gradient); padding: 50px 6%; }
+.stats-grid { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center; }
+.stat-num { font-size: 2.4rem; font-weight: 700; color: var(--white); }
+.stat p { color: #dbeafe; margin-top: 4px; }
