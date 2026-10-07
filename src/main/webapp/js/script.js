@@ -32,18 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	      item.classList.toggle("open");
 	    });
 	  });
-	  
-	  // Animated stats counter
-	  document.querySelectorAll(".stat-num").forEach(function (el) {
-	    var target = parseInt(el.dataset.target);
-	    var count = 0;
-	    var step = Math.max(1, Math.ceil(target / 60));
-	    var timer = setInterval(function () {
-	      count += step;
-	      if (count >= target) { count = target; clearInterval(timer); }
-	      el.textContent = count;
-	    }, 20);
-	  });
 	}
 
   function showMessage(form, text) {

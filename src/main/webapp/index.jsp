@@ -39,14 +39,6 @@
 <div class="hero-visual">🛒</div>
 </section>
 
-<section class="section stats-section">
-  <div class="stats-grid">
-    <div class="stat"><span class="stat-num" data-target="1240">0</span><p>Products Analyzed</p></div>
-    <div class="stat"><span class="stat-num" data-target="380">0</span><p>Dark Patterns Caught</p></div>
-    <div class="stat"><span class="stat-num" data-target="95">0</span><p>Happy Shoppers</p></div>
-  </div>
-</section>
-
   <section class="section">
     <h2 class="section-title">What we detect</h2>
     <div class="cards">
