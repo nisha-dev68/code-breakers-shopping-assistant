@@ -22,6 +22,7 @@
       <li><a href="about.jsp">About</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </ul>
   </nav>
 
@@ -38,5 +39,6 @@
   </footer>
 
   <script src="${pageContext.request.contextPath}/js/script.js"></script>
+  <button class="back-to-top" id="backToTop">↑</button>
 </body>
 </html>

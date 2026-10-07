@@ -23,15 +23,17 @@
       <li><a href="products.jsp">Products</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </ul>
   </nav>
 
   <section class="result-wrap">
 
     <div class="result-url-bar">
-      <span>🔗</span>
-      <p>${empty productUrl ? "https://example-store.com/product/wireless-earbuds-x200" : productUrl}</p>
-    </div>
+  <span>🔗</span>
+  <p id="resultUrl">${empty productUrl ? "https://example-store.com/product/wireless-earbuds-x200" : productUrl}</p>
+  <button type="button" class="copy-btn" id="copyUrlBtn">Copy</button>
+</div>
 
     <c:set var="riskClass" value="${empty riskLevel ? 'risk-medium' : riskLevel}" />
 
@@ -104,5 +106,6 @@
   </footer>
 
   <script src="${pageContext.request.contextPath}/js/script.js"></script>
+  <button class="back-to-top" id="backToTop">↑</button>
 </body>
 </html>

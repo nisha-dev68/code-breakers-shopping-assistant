@@ -32,16 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	      item.classList.toggle("open");
 	    });
 	  });
+	  
 	}
 
-  function showMessage(form, text) {
-    var old = form.parentNode.querySelector(".form-error");
-    if (old) old.remove();
-    var msg = document.createElement("div");
-    msg.className = "form-error";
-    msg.textContent = text;
-    form.insertAdjacentElement("afterend", msg);
-  }
+	function showMessage(form, text) {
+	  var toast = document.createElement("div");
+	  toast.className = "toast";
+	  toast.textContent = text;
+	  document.body.appendChild(toast);
+	  setTimeout(function () { toast.classList.add("show"); }, 10);
+	  setTimeout(function () {
+	    toast.classList.remove("show");
+	    setTimeout(function () { toast.remove(); }, 300);
+	  }, 3000);
+	}
 
   // Homepage: analyze form
   var analyzeForm = document.querySelector(".search-box");
@@ -55,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       var btn = analyzeForm.querySelector("button");
       btn.textContent = "Analyzing...";
+	  btn.classList.add("loading");
       btn.disabled = true;
     });
   }
@@ -105,5 +110,37 @@ window.addEventListener("pageshow", function () {
     };
     pw1.addEventListener("input", checkMatch);
     pw2.addEventListener("input", checkMatch);
+  }
+  
+  var backBtn = document.getElementById("backToTop");
+  if (backBtn) {
+    window.addEventListener("scroll", function () {
+      backBtn.classList.toggle("show", window.scrollY > 400);
+    });
+    backBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+  
+  var copyBtn = document.getElementById("copyUrlBtn");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var text = document.getElementById("resultUrl").textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = "Copied!";
+        setTimeout(function () { copyBtn.textContent = "Copy"; }, 1500);
+      });
+    });
+  }
+  
+  var themeBtn = document.getElementById("themeToggle");
+  if (themeBtn) {
+    if (localStorage.getItem("theme") === "dark") { document.body.classList.add("dark"); themeBtn.textContent = "☀️"; }
+    themeBtn.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+      var isDark = document.body.classList.contains("dark");
+      themeBtn.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
   }
 });
