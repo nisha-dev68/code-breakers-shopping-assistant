@@ -22,6 +22,7 @@
       <li><a href="about.jsp">About</a></li>
       <li><a href="faq.jsp">FAQ</a></li>
       <li><a href="contact.jsp">Contact</a></li>
+      <li><a href="blog.jsp">Blog</a></li>
       <li><a href="history.jsp">My History</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>

@@ -566,3 +566,8 @@ body.dark {
 .filter-bar input { flex: 1; min-width: 180px; padding: 10px 16px; border: 1.5px solid #e2e8f0; border-radius: 50px; font-family: inherit; }
 .filter-bar select { padding: 10px 16px; border: 1.5px solid #e2e8f0; border-radius: 50px; font-family: inherit; }
 .filter-bar input:focus, .filter-bar select:focus { outline: none; border-color: var(--blue); }
+.btn-outline { background: none; border: 2px solid var(--blue); color: var(--blue); box-shadow: none; margin-left: 10px; }
+.btn-outline:hover { background: var(--blue); color: var(--white); }
+@media print {
+  .navbar, .footer, .result-actions, .back-to-top, .theme-toggle { display: none !important; }
+}

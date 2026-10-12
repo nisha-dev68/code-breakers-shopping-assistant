@@ -21,6 +21,11 @@
     <ul id="navLinks">
       <li><a href="index.jsp">Home</a></li>
       <li><a href="products.jsp">Products</a></li>
+      <li><a href="about.jsp">About</a></li>
+      <li><a href="faq.jsp">FAQ</a></li>
+      <li><a href="contact.jsp">Contact</a></li>
+      <li><a href="blog.jsp">Blog</a></li>
+      <li><a href="history.jsp">My History</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
@@ -33,6 +38,10 @@
   <span>🔗</span>
   <p id="resultUrl">${empty productUrl ? "https://example-store.com/product/wireless-earbuds-x200" : productUrl}</p>
   <button type="button" class="copy-btn" id="copyUrlBtn">Copy</button>
+</div>
+<div class="result-actions">
+  <a href="index.jsp" class="btn">Analyze Another Product</a>
+  <button onclick="window.print()" class="btn btn-outline">🖨️ Print / Save as PDF</button>
 </div>
 
     <c:set var="riskClass" value="${empty riskLevel ? 'risk-medium' : riskLevel}" />

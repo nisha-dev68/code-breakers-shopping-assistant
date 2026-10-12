@@ -20,6 +20,7 @@
       <li><a href="index.jsp">Home</a></li>
       <li><a href="products.jsp">Products</a></li>
       <li><a href="about.jsp">About</a></li>
+      <li><a href="blog.jsp">Blog</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
