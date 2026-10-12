@@ -561,3 +561,8 @@ html { scroll-behavior: smooth; }
 body.dark {
   --bg: #0f172a; --white: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --navy: #dbeafe;
 }
+
+.filter-bar { display: flex; gap: 12px; max-width: 600px; margin: 0 auto 28px; flex-wrap: wrap; }
+.filter-bar input { flex: 1; min-width: 180px; padding: 10px 16px; border: 1.5px solid #e2e8f0; border-radius: 50px; font-family: inherit; }
+.filter-bar select { padding: 10px 16px; border: 1.5px solid #e2e8f0; border-radius: 50px; font-family: inherit; }
+.filter-bar input:focus, .filter-bar select:focus { outline: none; border-color: var(--blue); }

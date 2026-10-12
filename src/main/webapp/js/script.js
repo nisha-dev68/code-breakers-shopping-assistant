@@ -6,6 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
 	  menuBtn.addEventListener("click", function () {
 	    navLinks.classList.toggle("open");
 	  });
+	  
+	  var searchInput = document.getElementById("searchInput");
+	  var riskFilter = document.getElementById("riskFilter");
+	  if (searchInput && riskFilter) {
+	    function filterProducts() {
+	      var term = searchInput.value.toLowerCase();
+	      var risk = riskFilter.value;
+	      document.querySelectorAll(".product-card").forEach(function (card) {
+	        var name = card.querySelector("h3").textContent.toLowerCase();
+	        var cardRisk = card.querySelector(".product-score").classList[1];
+	        var matchesText = name.includes(term);
+	        var matchesRisk = risk === "all" || cardRisk === risk;
+	        card.style.display = (matchesText && matchesRisk) ? "" : "none";
+	      });
+	    }
+	    searchInput.addEventListener("input", filterProducts);
+	    riskFilter.addEventListener("change", filterProducts);
+	  }
 	  // Highlight active nav link
 	  var currentPage = window.location.pathname.split("/").pop();
 	  document.querySelectorAll(".navbar ul a").forEach(function (link) {

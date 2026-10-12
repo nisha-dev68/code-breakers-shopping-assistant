@@ -22,6 +22,7 @@
       <li><a href="about.jsp">About</a></li>
       <li><a href="faq.jsp">FAQ</a></li>
       <li><a href="contact.jsp">Contact</a></li>
+      <li><a href="history.jsp">My History</a></li>
       <li><a href="login.jsp">Login</a></li>
       <li><a href="signup.jsp">Sign Up</a></li>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
@@ -31,6 +32,15 @@
   <section class="section">
     <h2 class="section-title">Recently Analyzed Products</h2>
     <p class="section-sub">See what our community has checked so far.</p>
+    <div class="filter-bar">
+       <input type="text" id="searchInput" placeholder="Search products...">
+       <select id="riskFilter">
+          <option value="all">All Risk Levels</option>
+          <option value="risk-low">Low Risk</option>
+          <option value="risk-medium">Moderate Risk</option>
+          <option value="risk-high">High Risk</option>
+       </select>
+    </div>
 
     <div class="product-grid">
     <c:choose>
