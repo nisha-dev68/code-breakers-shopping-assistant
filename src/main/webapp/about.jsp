@@ -112,7 +112,7 @@
     <p>Database</p>
     <div class="team-links">
       <a href="https://www.linkedin.com/in/mahima-yadav-7ab774433?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="link-linkedin">🔗 LinkedIn</a>
-      <a href="https://github.com/MAHIMA-USERNAME" target="_blank" class="link-github">💻 GitHub</a>
+      <a href="https://github.com/mahimayadav66" target="_blank" class="link-github">💻 GitHub</a>
     </div>
   </div>
 
@@ -122,7 +122,7 @@
     <p>Research</p>
     <div class="team-links">
       <a href="https://www.linkedin.com/in/priya-chaurasiya-200835435?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="link-linkedin">🔗 LinkedIn</a>
-      <a href="https://github.com/PRIYA-USERNAME" target="_blank" class="link-github">💻 GitHub</a>
+      <a href="https://github.com/rohitchaurasiya776655-eng" target="_blank" class="link-github">💻 GitHub</a>
     </div>
   </div>
 </div>
