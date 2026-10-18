@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +26,23 @@
       <li><a href="contact.jsp">Contact</a></li>
       <li><a href="blog.jsp">Blog</a></li>
       <li><a href="history.jsp">My History</a></li>
-      <li><a href="login.jsp">Login</a></li>
-      <li><a href="signup.jsp">Sign Up</a></li>
+      <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <li class="profile-chip" id="profileChip">
+  <span class="avatar-circle" id="avatarCircle">${fn:substring(sessionScope.fullName, 0, 1)}</span>
+  <span class="profile-name">${sessionScope.fullName}</span>
+  <div class="profile-dropdown" id="profileDropdown">
+    <a href="profile.jsp">👤 My Profile</a>
+    <a href="history.jsp">📊 My History</a>
+    <a href="logout">🚪 Logout</a>
+  </div>
+</li>
+  </c:when>
+  <c:otherwise>
+    <li><a href="login.jsp">Login</a></li>
+    <li><a href="signup.jsp">Sign Up</a></li>
+  </c:otherwise>
+</c:choose>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </ul>
   </nav>
@@ -48,25 +64,10 @@
           </c:forEach>
         </c:when>
         <c:otherwise>
-          <a href="result.jsp" class="product-card">
-            <div class="product-score risk-high">82%</div>
-            <h3>Wireless Earbuds X200</h3>
-            <p class="product-url">example-store.com</p>
-            <span class="product-risk-label">High Risk</span>
-          </a>
-          <a href="result.jsp" class="product-card">
-            <div class="product-score risk-medium">55%</div>
-            <h3>Smart Fitness Band</h3>
-            <p class="product-url">shopfast.in</p>
-            <span class="product-risk-label">Moderate Risk</span>
-          </a>
-          <a href="result.jsp" class="product-card">
-            <div class="product-score risk-low">18%</div>
-            <h3>Ceramic Cookware Set</h3>
-            <p class="product-url">homeessentials.com</p>
-            <span class="product-risk-label">Low Risk</span>
-          </a>
-        </c:otherwise>
+  <p style="text-align:center; color: var(--muted); grid-column: 1/-1; padding: 20px;">
+    You haven't analyzed any products yet. <a href="index.jsp">Try analyzing one now!</a>
+  </p>
+</c:otherwise>
       </c:choose>
     </div>
 

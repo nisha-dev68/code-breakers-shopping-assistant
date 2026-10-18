@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,14 +26,32 @@
   <li><a href="contact.jsp">Contact</a></li>
   <li><a href="blog.jsp">Blog</a></li>
   <li><a href="history.jsp">My History</a></li>
-  <li><a href="login.jsp">Login</a></li>
-  <li><a href="signup.jsp">Sign Up</a></li>
+  <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <li class="profile-chip" id="profileChip">
+  <span class="avatar-circle" id="avatarCircle">${fn:substring(sessionScope.fullName, 0, 1)}</span>
+  <span class="profile-name">${sessionScope.fullName}</span>
+  <div class="profile-dropdown" id="profileDropdown">
+    <a href="profile.jsp">👤 My Profile</a>
+    <a href="history.jsp">📊 My History</a>
+    <a href="logout">🚪 Logout</a>
+  </div>
+</li>
+  </c:when>
+  <c:otherwise>
+    <li><a href="login.jsp">Login</a></li>
+    <li><a href="signup.jsp">Sign Up</a></li>
+  </c:otherwise>
+</c:choose>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
  </ul>
 </nav>
 <section class="hero">
 <div class="hero-text">
-   <h1>Shop smart.<br>Spot dark patterns.</h1>
+<c:if test="${not empty sessionScope.userId}">
+  <p class="hello-greeting">👋 Hello, ${sessionScope.fullName}!</p>
+</c:if>
+<h1>Shop smart.<br>Spot dark patterns.</h1>
    <p>Paste any e-commerce product link. We check it for fake urgency, misleading discounts and hidden charges.</p>
    <form class="search-box" action="analyze" method="post">
       <input type="url" name="productUrl" placeholder="Paste product URL here" required>

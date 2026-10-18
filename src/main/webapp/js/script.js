@@ -50,6 +50,24 @@ document.addEventListener("DOMContentLoaded", function () {
 	      item.classList.toggle("open");
 	    });
 	  });
+	  // Profile dropdown toggle
+	  var chip = document.getElementById("profileChip");
+	  var dropdown = document.getElementById("profileDropdown");
+	  if (chip && dropdown) {
+	    chip.addEventListener("click", function (e) {
+	      dropdown.classList.toggle("open");
+	    });
+	    document.addEventListener("click", function (e) {
+	      if (!chip.contains(e.target)) dropdown.classList.remove("open");
+	    });
+	  }
+
+	  // Apply saved avatar color
+	  var avatarCircle = document.getElementById("avatarCircle");
+	  if (avatarCircle) {
+	    var savedColor = localStorage.getItem("avatarColor");
+	    if (savedColor) avatarCircle.style.background = savedColor;
+	  }
 	  
 	}
 
@@ -161,4 +179,18 @@ window.addEventListener("pageshow", function () {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     });
   }
+});
+
+// Avatar color picker (on profile page)
+document.querySelectorAll(".avatar-color-dot").forEach(function (dot) {
+  dot.addEventListener("click", function () {
+    var color = dot.dataset.color;
+    localStorage.setItem("avatarColor", color);
+    document.querySelectorAll(".avatar-color-dot").forEach(function (d) { d.classList.remove("selected"); });
+    dot.classList.add("selected");
+    var bigAvatar = document.getElementById("bigAvatar");
+    if (bigAvatar) bigAvatar.style.background = color;
+    var navAvatar = document.getElementById("avatarCircle");
+    if (navAvatar) navAvatar.style.background = color;
+  });
 });

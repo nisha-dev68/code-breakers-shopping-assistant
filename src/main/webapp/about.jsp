@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +26,23 @@
       <li><a href="contact.jsp">Contact</a></li>
       <li><a href="blog.jsp">Blog</a></li>
       <li><a href="history.jsp">My History</a></li>
-      <li><a href="login.jsp">Login</a></li>
-      <li><a href="signup.jsp">Sign Up</a></li>
+      <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <li class="profile-chip" id="profileChip">
+  <span class="avatar-circle" id="avatarCircle">${fn:substring(sessionScope.fullName, 0, 1)}</span>
+  <span class="profile-name">${sessionScope.fullName}</span>
+  <div class="profile-dropdown" id="profileDropdown">
+    <a href="profile.jsp">👤 My Profile</a>
+    <a href="history.jsp">📊 My History</a>
+    <a href="logout">🚪 Logout</a>
+  </div>
+</li>
+  </c:when>
+  <c:otherwise>
+    <li><a href="login.jsp">Login</a></li>
+    <li><a href="signup.jsp">Sign Up</a></li>
+  </c:otherwise>
+</c:choose>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </ul>
   </nav>
@@ -63,16 +80,53 @@
       <div class="card"><span class="icon">🙁</span><h3>Confirm-shaming</h3><p>Guilt-trip buttons designed to shame you into buying.</p></div>
     </div>
   </section>
+  
+  <section class="section team-section">
+  <h2 class="section-title">👥 Meet the Team Behind This Project</h2>
+  <p class="section-sub">Four of us, one shared mission — making online shopping more transparent.</p>
 
-  <section class="section alt">
-    <h2 class="section-title">Team — Code Breakers</h2>
-    <div class="cards">
-       <div class="card"> <h3>Nisha Singh</h3> <p>Frontend</p> </div>
-       <div class="card"> <h3>Pooja Kumari</h3> <p>Backend</p> </div>
-       <div class="card"> <h3>Mahima Yadav</h3> <p>Database</p> </div>
-       <div class="card"> <h3>Priya Chaurasiya</h3> <p>Research Report + PPT</p> </div>
+  <div class="cards">
+  <div class="card team-card">
+    <span class="icon">👩‍💻</span>
+    <h3>Nisha Singh</h3>
+    <p>Frontend</p>
+    <div class="team-links">
+      <a href="https://www.linkedin.com/in/nisha-singh-370218430?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="link-linkedin">🔗 LinkedIn</a>
+      <a href="https://github.com/nisha-dev68" target="_blank" class="link-github">💻 GitHub</a>
     </div>
-  </section>
+  </div>
+
+  <div class="card team-card">
+    <span class="icon">⚙️</span>
+    <h3>Pooja Kumari</h3>
+    <p>Backend</p>
+    <div class="team-links">
+      <a href="https://www.linkedin.com/in/pooja-kumari-1b47873b7?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="link-linkedin">🔗 LinkedIn</a>
+      <a href="https://github.com/PoojaKumari2611" target="_blank" class="link-github">💻 GitHub</a>
+    </div>
+  </div>
+
+  <div class="card team-card">
+    <span class="icon">🗄️</span>
+    <h3>Mahima Yadav</h3>
+    <p>Database</p>
+    <div class="team-links">
+      <a href="https://www.linkedin.com/in/mahima-yadav-7ab774433?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="link-linkedin">🔗 LinkedIn</a>
+      <a href="https://github.com/MAHIMA-USERNAME" target="_blank" class="link-github">💻 GitHub</a>
+    </div>
+  </div>
+
+  <div class="card team-card">
+    <span class="icon">📊</span>
+    <h3>Priya Chaurasiya</h3>
+    <p>Research</p>
+    <div class="team-links">
+      <a href="https://www.linkedin.com/in/priya-chaurasiya-200835435?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="link-linkedin">🔗 LinkedIn</a>
+      <a href="https://github.com/PRIYA-USERNAME" target="_blank" class="link-github">💻 GitHub</a>
+    </div>
+  </div>
+</div>
+</section>
 
   <div class="result-actions">
     <a href="index.jsp" class="btn">Try It Now</a>

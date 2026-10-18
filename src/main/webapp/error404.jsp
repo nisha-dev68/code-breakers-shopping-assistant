@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isErrorPage="true" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +14,38 @@
 <body>
 
   <nav class="navbar">
-    <a href="index.jsp" class="logo">🛡️ DarkPattern Assistant</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul id="navLinks">
-      <li><a href="index.jsp">Home</a></li>
-      <li><a href="products.jsp">Products</a></li>
-      <li><a href="about.jsp">About</a></li>
-      <li><a href="blog.jsp">Blog</a></li>
-      <li><a href="login.jsp">Login</a></li>
-      <li><a href="signup.jsp">Sign Up</a></li>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
-    </ul>
-  </nav>
+  <a href="index.jsp" class="logo">🛡️ DarkPattern Assistant</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+ <ul id="navLinks">
+  <li><a href="index.jsp">Home</a></li>
+  <li><a href="products.jsp">Products</a></li>
+  <li><a href="about.jsp">About</a></li>
+  <li><a href="faq.jsp">FAQ</a></li>
+  <li><a href="contact.jsp">Contact</a></li>
+  <li><a href="blog.jsp">Blog</a></li>
+  <li><a href="history.jsp">My History</a></li>
+  <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <li class="profile-chip" id="profileChip">
+  <span class="avatar-circle" id="avatarCircle">${fn:substring(sessionScope.fullName, 0, 1)}</span>
+  <span class="profile-name">${sessionScope.fullName}</span>
+  <div class="profile-dropdown" id="profileDropdown">
+    <a href="profile.jsp">👤 My Profile</a>
+    <a href="history.jsp">📊 My History</a>
+    <a href="logout">🚪 Logout</a>
+  </div>
+</li>
+  </c:when>
+  <c:otherwise>
+    <li><a href="login.jsp">Login</a></li>
+    <li><a href="signup.jsp">Sign Up</a></li>
+  </c:otherwise>
+</c:choose>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+ </ul>
+</nav>
 
   <section class="error-wrap">
     <div class="error-icon">🕵️‍♀️</div>

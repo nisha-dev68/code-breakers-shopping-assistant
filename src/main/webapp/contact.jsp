@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +26,23 @@
       <li><a href="contact.jsp">Contact</a></li>
       <li><a href="blog.jsp">Blog</a></li>
       <li><a href="history.jsp">My History</a></li>
-      <li><a href="login.jsp">Login</a></li>
-      <li><a href="signup.jsp">Sign Up</a></li>
+      <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <li class="profile-chip" id="profileChip">
+  <span class="avatar-circle" id="avatarCircle">${fn:substring(sessionScope.fullName, 0, 1)}</span>
+  <span class="profile-name">${sessionScope.fullName}</span>
+  <div class="profile-dropdown" id="profileDropdown">
+    <a href="profile.jsp">👤 My Profile</a>
+    <a href="history.jsp">📊 My History</a>
+    <a href="logout">🚪 Logout</a>
+  </div>
+</li>
+  </c:when>
+  <c:otherwise>
+    <li><a href="login.jsp">Login</a></li>
+    <li><a href="signup.jsp">Sign Up</a></li>
+  </c:otherwise>
+</c:choose>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </ul>
   </nav>
