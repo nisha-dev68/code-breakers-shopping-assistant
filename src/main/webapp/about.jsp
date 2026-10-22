@@ -20,12 +20,12 @@
     </button>
     <ul id="navLinks">
       <li><a href="index.jsp">Home</a></li>
-      <li><a href="products.jsp">Products</a></li>
+      <li><a href="products">Products</a></li>
       <li><a href="about.jsp">About</a></li>
       <li><a href="faq.jsp">FAQ</a></li>
       <li><a href="contact.jsp">Contact</a></li>
       <li><a href="blog.jsp">Blog</a></li>
-      <li><a href="history.jsp">My History</a></li>
+      <li><a href="history">My History</a></li>
       <c:choose>
   <c:when test="${not empty sessionScope.userId}">
     <li class="profile-chip" id="profileChip">
@@ -33,7 +33,7 @@
   <span class="profile-name">${sessionScope.fullName}</span>
   <div class="profile-dropdown" id="profileDropdown">
     <a href="profile.jsp">👤 My Profile</a>
-    <a href="history.jsp">📊 My History</a>
+    <a href="history">📊 My History</a>
     <a href="logout">🚪 Logout</a>
   </div>
 </li>
