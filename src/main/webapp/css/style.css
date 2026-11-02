@@ -690,3 +690,15 @@ body.dark {
 .profile-page-card, .profile-page-card * { text-align: center !important; }
 .profile-info-row { justify-content: center !important; gap: 10px; }
 .avatar-picker { justify-content: center !important; }
+
+.product-date { margin-top: 10px; font-size: .8rem; color: var(--muted); }
+
+.history-item { display: flex; flex-direction: column; gap: 8px; }
+.history-item .product-card { flex: 1; }
+.delete-form { text-align: center; }
+.delete-btn {
+  background: none; border: 1.5px solid #fca5a5; color: #b91c1c;
+  padding: 6px 16px; border-radius: 50px; font-family: inherit;
+  font-size: .8rem; font-weight: 600; cursor: pointer;
+}
+.delete-btn:hover { background: #dc2626; border-color: #dc2626; color: #fff; }

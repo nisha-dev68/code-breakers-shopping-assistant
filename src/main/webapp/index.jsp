@@ -57,6 +57,9 @@
       <input type="url" name="productUrl" placeholder="Paste product URL here" required>
       <button type="submit" class="btn">Analyze</button>
     </form>
+    <c:if test="${not empty param.msg}">
+  <div class="alert" style="margin-top:14px;"><c:out value="${param.msg}"/></div>
+</c:if>
     <p class="hint">🎁 Your first analysis is free. Login for unlimited checks.</p>
 </div>
 <div class="hero-visual">🛒</div>

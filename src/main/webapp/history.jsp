@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,25 +52,37 @@
     <h2 class="section-title">My Analysis History</h2>
     <p class="section-sub">Products you've checked before.</p>
 
-    <div class="product-grid">
-      <c:choose>
-        <c:when test="${not empty recentProducts}">
-          <c:forEach var="prod" items="${recentProducts}">
-            <a href="result.jsp?id=${prod.id}" class="product-card">
-              <div class="product-score risk-${prod.riskLevel}">${prod.score}%</div>
-              <h3>${prod.name}</h3>
-              <p class="product-url">${prod.url}</p>
-              <span class="product-risk-label">${prod.riskLabel}</span>
-            </a>
-          </c:forEach>
-        </c:when>
-        <c:otherwise>
-  <p style="text-align:center; color: var(--muted); grid-column: 1/-1; padding: 20px;">
-    You haven't analyzed any products yet. <a href="index.jsp">Try analyzing one now!</a>
-  </p>
-</c:otherwise>
-      </c:choose>
-    </div>
+    <c:if test="${not empty param.msg}">
+  <div class="alert" style="max-width:600px; margin:0 auto 20px;"><c:out value="${param.msg}"/></div>
+</c:if>
+
+<div class="product-grid">
+  <c:choose>
+    <c:when test="${not empty recentProducts}">
+      <c:forEach var="prod" items="${recentProducts}">
+        <div class="history-item">
+          <a href="result?id=${prod.id}" class="product-card">
+            <div class="product-score risk-${prod.riskLevel}">${prod.score}%</div>
+            <h3>${prod.name}</h3>
+            <p class="product-url">${prod.url}</p>
+            <span class="product-risk-label">${prod.riskLabel}</span>
+            <p class="product-date">🕒 <fmt:formatDate value="${prod.createdAt}" pattern="dd MMM yyyy, hh:mm a"/></p>
+          </a>
+          <form action="delete-history" method="post" class="delete-form"
+                onsubmit="return confirm('Delete this entry from your history?');">
+            <input type="hidden" name="id" value="${prod.id}">
+            <button type="submit" class="delete-btn">🗑️ Delete</button>
+          </form>
+        </div>
+      </c:forEach>
+    </c:when>
+    <c:otherwise>
+      <p style="text-align:center; color: var(--muted); grid-column: 1/-1; padding: 20px;">
+        You haven't analyzed any products yet. <a href="index.jsp">Try analyzing one now!</a>
+      </p>
+    </c:otherwise>
+  </c:choose>
+</div>
 
     <div class="result-actions">
       <a href="index.jsp" class="btn">Analyze a New Product</a>
