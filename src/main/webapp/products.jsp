@@ -63,7 +63,7 @@
     <c:choose>
     <c:when test="${not empty recentProducts}">
     <c:forEach var="prod" items="${recentProducts}">
-    <a href="result.jsp?id=${prod.id}" class="product-card">
+    <a href="result?id=${prod.id}" class="product-card">
     <div class="product-score risk-${prod.riskLevel}"> ${prod.score}% </div>
     <h3>${prod.name}</h3>
               <p class="product-url">${prod.url}</p>

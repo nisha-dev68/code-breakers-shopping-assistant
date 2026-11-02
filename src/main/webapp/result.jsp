@@ -90,6 +90,9 @@
             </div>
           </c:forEach>
         </c:when>
+        <c:when test="${not empty productUrl}">
+  <p style="text-align:center; color: var(--muted);">No dark-pattern keywords were detected on this page.</p>
+</c:when>
         <c:otherwise>
           <div class="pattern-item severity-high">
             <span class="icon">⏰</span>
